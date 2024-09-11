@@ -1,0 +1,2 @@
+For: @Document(collection = "config_journal")
+key "WEATHER_API", value "http://api.weatherstack.com/current?access_key=<apiKey>&query=<city>"
