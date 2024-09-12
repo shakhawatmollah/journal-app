@@ -23,8 +23,6 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final UserDetailsServiceImpl userDetailsService;
-
     private final JwtFilter jwtFilter;
 
     @Bean
@@ -43,10 +41,6 @@ public class SecurityConfig {
                         .addLogoutHandler(new SecurityContextLogoutHandler())
                 )
                 .build();
-    }
-
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Bean

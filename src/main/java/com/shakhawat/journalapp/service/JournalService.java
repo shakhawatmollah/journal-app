@@ -22,7 +22,7 @@ public class JournalService {
 
     private final UserService userService;
     
-    @Transactional
+    //@Transactional
     public void saveEntry(Journal journal, String userName) {
         try {
             User user = userService.findByUserName(userName);
