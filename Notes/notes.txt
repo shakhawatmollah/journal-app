@@ -1,0 +1,22 @@
+For: @Document(collection = "config_journal") store in MongoDB
+key "WEATHER_API", value "http://api.weatherstack.com/current?access_key=<apiKey>&query=<city>"
+
+🟢 INSTALLATION COMMANDS
+
+zookeeper-server-start.bat ..\..\config\zookeeper.properties
+kafka-server-start.bat ..\..\config\server.properties
+kafka-topics.bat --create --topic my-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 3
+kafka-console-producer.bat --broker-list localhost:9092 --topic my-topic
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic my-topic --from-beginning
+
+🟢 SENDING MESSAGES COMMANDS
+
+zookeeper-server-start.bat ..\..\config\zookeeper.properties
+kafka-server-start.bat ..\..\config\server.properties
+kafka-topics.bat --create --topic foods --bootstrap-server localhost:9092 --replication-factor 1 --partitions 4
+kafka-console-producer.bat --broker-list localhost:9092 --topic foods --property "key.separator=-" --property "parse.key=true"
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic foods --from-beginning -property "key.separator=-" --property "print.key=false"
+
+#Audit/Check
+Path: ...\kafka_2.13-3.8.0\bin\windows
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic weekly-sentiments --from-beginning
