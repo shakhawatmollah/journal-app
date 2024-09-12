@@ -13,10 +13,11 @@ Spring 6 Boot 3 - Journal App
 * Spring JDBC 6.0.8
 * Spring Security 6.3.3
 * Spring Boot 3.3.3
+* JSON Web Token (JWT)
 * Spring Mail
 * MongoDB
 * Redis
-* JSON Web Token (JWT)
+* Kafka
 * Maven 3.0 or later
 * Spring Devtools
 * Lombok
