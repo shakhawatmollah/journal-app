@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userName\":\"liyana\",\r\n    \"email\":\"liyana@mail.com\",\r\n    \"sentimentAnalysis\": true,\r\n    \"password\":\"123456\"\r\n}",
+					"raw": "{\r\n    \"userName\":\"mollah\",\r\n    \"email\":\"mollah@mail.com\",\r\n    \"sentimentAnalysis\": true,\r\n    \"password\":\"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"userName\":\"liyana\",\r\n    \"password\":\"123456\"\r\n}",
+					"raw": "{\r\n    \"userName\":\"mollah\",\r\n    \"password\":\"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -72,7 +72,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXlhbmEiLCJpYXQiOjE3MjYwNTk4MzMsImV4cCI6MTcyNjA2MzQzM30.qf5lOvyBUXSBt1wzLHzW6RMI5WfsiL6WGDjU-e3ViGI",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXlhbmEiLCJpYXQiOjE3Mjc2MDQ4MTUsImV4cCI6MTcyNzYwODQxNX0.dQHeBd_WPGEkmALDzlinMk2C3eyH6No-lqCaYoGmsMo",
 							"type": "string"
 						}
 					]
@@ -102,7 +102,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXlhbmEiLCJpYXQiOjE3MjYxMjIxNzEsImV4cCI6MTcyNjEyNTc3MX0.rpy-pTVte9IDrwHzVF2YA233RZNu2TZebVl8L-nmJEQ",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXlhbmEiLCJpYXQiOjE3Mjc2MDQ4MTUsImV4cCI6MTcyNzYwODQxNX0.dQHeBd_WPGEkmALDzlinMk2C3eyH6No-lqCaYoGmsMo",
 							"type": "string"
 						}
 					]
@@ -132,7 +132,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXlhbmEiLCJpYXQiOjE3MjYxMjU4OTcsImV4cCI6MTcyNjEyOTQ5N30.B4dQIvPM5QwkthcUZD71dHiA2jkW_KivkkYfIFYyBMM",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXlhbmEiLCJpYXQiOjE3Mjc2MjIxOTgsImV4cCI6MTcyNzYyNTc5OH0.GAgMt2RIalmfDi-83ZRBKXSht2jvF4AJRnSHRCDGykY",
 							"type": "string"
 						}
 					]
@@ -141,7 +141,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\":\"Title of Journal\",\r\n    \"content\":\"Ya Hoo\",\r\n    \"sentiment\":\"HAPPY\"\r\n}",
+					"raw": "{\r\n    \"title\":\"Alhamdulillah\",\r\n    \"content\":\"Alhamdulillah, Alhamdulillah, Alhamdulillah ...\",\r\n    \"sentiment\":\"HAPPY\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -157,6 +157,130 @@
 					"port": "8080",
 					"path": [
 						"journal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Journal entries",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXlhbmEiLCJpYXQiOjE3Mjc2MjE0MTAsImV4cCI6MTcyNzYyNTAxMH0.b_kVnoR5parvSRDenQICth44nSCJzJL7Z9xJGy1smeA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/journal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"journal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Journal by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXlhbmEiLCJpYXQiOjE3Mjc2MjE0MTAsImV4cCI6MTcyNzYyNTAxMH0.b_kVnoR5parvSRDenQICth44nSCJzJL7Z9xJGy1smeA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/journal/id/66f96c6187093764c0496efc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"journal",
+						"id",
+						"66f96c6187093764c0496efc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Journal by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXlhbmEiLCJpYXQiOjE3Mjc2MjIxOTgsImV4cCI6MTcyNzYyNTc5OH0.GAgMt2RIalmfDi-83ZRBKXSht2jvF4AJRnSHRCDGykY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/journal/id/66f96c6187093764c0496efc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"journal",
+						"id",
+						"66f96c6187093764c0496efc"
 					]
 				}
 			},

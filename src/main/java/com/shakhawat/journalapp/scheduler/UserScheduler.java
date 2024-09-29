@@ -15,10 +15,8 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -32,8 +30,8 @@ public class UserScheduler {
 
     private final KafkaTemplate<String, SentimentData> kafkaTemplate;
 
-    //@Scheduled(cron = "0 0 9 * * SUN")
-    @Scheduled(cron = "*/1 * * * * ?")
+    @Scheduled(cron = "0 0 9 * * SUN")
+    //@Scheduled(cron = "*/1 * * * * ?")
     public void fetchUsersAndSendSaMail() {
         List<User> users = userRepository.getUserForSentimentAnalysis();
         for (User user : users) {

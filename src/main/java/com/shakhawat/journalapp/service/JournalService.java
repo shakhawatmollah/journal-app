@@ -47,7 +47,6 @@ public class JournalService {
         return journalRepository.findById(id);
     }
 
-    @Transactional
     public boolean deleteById(ObjectId id, String userName) {
         boolean removed = false;
         try {
