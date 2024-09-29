@@ -35,4 +35,4 @@ Import Postman collection to quickly get started.
 
 Collection:
 
-[![Collection](https://run.pstmn.io/button.svg)](https://github.com/shakhawatmollah/journal-app/blob/main/notes/journal-app.postman_collection.json)
+[![Collection](https://run.pstmn.io/button.svg)](https://github.com/shakhawatmollah/journal-app/blob/main/docs/journal-app.postman_collection.json)
