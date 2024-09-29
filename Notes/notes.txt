@@ -17,6 +17,9 @@ kafka-topics.bat --create --topic foods --bootstrap-server localhost:9092 --repl
 kafka-console-producer.bat --broker-list localhost:9092 --topic foods --property "key.separator=-" --property "parse.key=true"
 kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic foods --from-beginning -property "key.separator=-" --property "print.key=false"
 
+🟢 Start
+zookeeper-server-start.bat ..\..\config\zookeeper.properties
+kafka-server-start.bat ..\..\config\server.properties
 #Audit/Check
 Path: ...\kafka_2.13-3.8.0\bin\windows
 kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic weekly-sentiments --from-beginning

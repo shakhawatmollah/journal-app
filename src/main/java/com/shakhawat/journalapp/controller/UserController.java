@@ -1,10 +1,13 @@
 package com.shakhawat.journalapp.controller;
 
+import com.shakhawat.journalapp.dto.LoginDTO;
 import com.shakhawat.journalapp.entity.User;
 import com.shakhawat.journalapp.repository.UserRepository;
 import com.shakhawat.journalapp.response.WeatherResponse;
 import com.shakhawat.journalapp.service.UserService;
 import com.shakhawat.journalapp.service.WeatherService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
+@Tag(name = "User APIs", description = "Update user, Delete user, Check Weather")
 public class UserController {
 
     private final UserService userService;
@@ -24,17 +28,19 @@ public class UserController {
     private final WeatherService weatherService;
 
     @PutMapping
-    public ResponseEntity<?> updateUser(@RequestBody User user) {
+    @Operation(summary = "Update user")
+    public ResponseEntity<?> updateUser(@RequestBody LoginDTO loginDTO) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         User userInDb = userService.findByUserName(userName);
-        userInDb.setUserName(user.getUserName());
-        userInDb.setPassword(user.getPassword());
+        userInDb.setUserName(loginDTO.getUserName());
+        userInDb.setPassword(loginDTO.getPassword());
         userService.saveNewUser(userInDb);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping
+    @Operation(summary = "Delete user")
     public ResponseEntity<?> deleteUserById() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         userRepository.deleteByUserName(authentication.getName());
@@ -42,6 +48,7 @@ public class UserController {
     }
 
     @GetMapping("/{city}")
+    @Operation(summary = "Greeting with weather feels like")
     public ResponseEntity<?> greeting(@PathVariable String city) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         WeatherResponse weatherResponse = weatherService.getWeather(city);

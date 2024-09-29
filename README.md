@@ -21,3 +21,6 @@ Spring 6 Boot 3 - Journal App
 * Maven 3.0 or later
 * Spring Devtools
 * Lombok
+
+#### The Swagger UI page will then be available at http://server:port/context-path/swagger-ui.html 
+#### OpenAPI description will be available at the following url for json format: http://server:port/context-path/v3/api-docs
