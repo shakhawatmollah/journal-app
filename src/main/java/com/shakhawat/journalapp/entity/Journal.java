@@ -1,6 +1,10 @@
 package com.shakhawat.journalapp.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.shakhawat.journalapp.enums.Sentiment;
+import com.shakhawat.journalapp.util.ObjectIdDeserializer;
+import com.shakhawat.journalapp.util.ObjectIdSerializer;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
@@ -15,6 +19,8 @@ import java.time.LocalDateTime;
 public class Journal {
 
     @Id
+    @JsonSerialize(using = ObjectIdSerializer.class)
+    @JsonDeserialize(using = ObjectIdDeserializer.class)
     private ObjectId id;
 
     private String title;
