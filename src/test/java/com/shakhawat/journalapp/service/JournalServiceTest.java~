@@ -1,0 +1,61 @@
+package com.shakhawat.journalapp.service;
+
+import com.shakhawat.journalapp.entity.Journal;
+import com.shakhawat.journalapp.entity.User;
+import com.shakhawat.journalapp.repository.JournalRepository;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+
+@SpringBootTest
+class JournalServiceTest {
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private JournalRepository journalRepository;
+
+    @Autowired
+    private JournalService journalService;
+
+    @Test
+    public void testSaveEntry() {
+        // Arrange
+        Journal journal = new Journal();
+        String userName = "testUser";
+        User user = new User();
+        user.setUserName(userName);
+        when(userService.findByUserName(userName)).thenReturn(user);
+        when(journalRepository.save(journal)).thenReturn(journal);
+
+        // Act
+        journalService.saveEntry(journal, userName);
+
+        // Assert
+        verify(userService, times(1)).findByUserName(userName);
+        verify(journalRepository, times(1)).save(journal);
+        verify(userService, times(1)).saveUser(user);
+        assertTrue(user.getJournalEntries().contains(journal));
+    }
+
+    @Test
+    public void testSaveEntry_ThrowsException() {
+        // Arrange
+        Journal journal = new Journal();
+        String userName = "testUser";
+        when(userService.findByUserName(userName)).thenThrow(new Exception("Test exception"));
+
+        // Act and Assert
+        assertThrows(Exception.class, () -> journalService.saveEntry(journal, userName));
+        verify(userService, times(1)).findByUserName(userName);
+        verify(journalRepository, never()).save(journal);
+        verify(userService, never()).saveUser(any(User.class));
+    }
+
+}

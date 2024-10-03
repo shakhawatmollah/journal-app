@@ -35,10 +35,10 @@ public class JournalService {
                     log.error("Journal object is incomplete or invalid.");
                 }
             } else {
-                log.error("User not found for userName: {}", userName);
+                log.error("User not found for userName: " + userName);
             }
-        } catch (Exception e) {
-            log.error("An error occurred while saving the entry for user: {}, journal: {}", userName, journal, e);
+        } catch (CustomJournalEntryException e) {
+            log.error("An error occurred while saving the entry for user: " + userName + ", journal: " + journal, e);
         }
     }
 
